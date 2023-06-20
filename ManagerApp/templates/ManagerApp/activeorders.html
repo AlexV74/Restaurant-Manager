@@ -1,0 +1,38 @@
+{% extends 'ManagerApp/layout.html' %}
+{% block title %}
+Active Orders
+{% endblock %}
+
+{% block content %}
+<div class="orderBody">
+    {% if user.is_authenticated %}
+        <h1> Active Orders </h1>
+ 	    Hello {{ user.STAFF_ID }}!
+         <div class="row">
+            {% for x in orders %}
+                <div class="col-md-3">
+                    <h3>Table Number: {{x.table_number}}</h3>
+                    <p>Order ID: {{x.order_id}}</p>
+                    {% for item in items %}
+                        {% if item.order == x.order_id %}
+                            <p>{{item.iname}}</p>
+                        {% endif %}
+                    {% endfor %}
+                    <form action="{% url 'ReadyToDeliver' x.order_id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-success" value="Ready"></input>
+                    </form>
+                </div>
+            {% endfor %}
+          </div>
+    {% else %}
+	<p>Login <a href="/accounts/login">here</a></p>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+

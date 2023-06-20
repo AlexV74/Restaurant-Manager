@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8"/>
+      <title>{{item.name}}</title>
+      {% load static %}
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="{% static 'ManagerApp/home.css' %}"/>
+   </head>
+   <body>
+	{% include 'ManagerApp/navbar.html' %}
+	<div class="container mt-5">
+		<h1 class="text-center mb-5">{{ item.name }}</h1>
+		<div class="row">
+			<div class="col-md-6">
+				{% if item.image %}
+				<img src="{{ item.image.url }}" alt="{{ item.name }}" height="400" class="img-fluid mb-3">
+				{% endif %}
+			</div>
+			<div class="col-md-6">
+				<ul class="list-group">
+					<li class="list-group-item"><strong>Description:</strong> {{ item.description }}</li>
+					<li class="list-group-item"><strong>Price:</strong> £{{ item.price }}</li>
+					<li class="list-group-item"><strong>Category:</strong> {{ item.category }}</li>
+					<li class="list-group-item"><strong>Calories:</strong> {{ item.calories }}</li>
+					<li class="list-group-item"><strong>Ingredients:</strong> {{ item.ingredients }}</li>
+					{% if item.is_available %}
+					<li class="list-group-item text-success"><strong>Availability:</strong> Available</li>
+					{% else %}
+					<li class="list-group-item text-danger"><strong>Availability:</strong> Not Available</li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

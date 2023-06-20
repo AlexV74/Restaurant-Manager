@@ -1,0 +1,86 @@
+{% extends 'ManagerApp/layout.html' %}
+{% block title %}
+Oaxaca Menu
+{% endblock %}
+
+{% block content %}
+<div class="orderBody">
+    <h1>Waiter</h1>
+
+<!-- This is where the notification for the customer help will be -->
+<h2>Customer tables that require Assistance</h2>
+<div class="row">
+    {% for x in need_help %}
+        <div class="col-md-3">
+            <h3>Table Number: {{x.table_number}}</h3>
+            <form action="{% url 'HelpGiven' x.table_number %}" method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-success" value="Assistance Given"></input>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+
+
+<h2>Ready To Deliver</h2>
+
+<!-- This is where the orders will be listed -->
+
+<div class="row">
+  {% for x in readyOrders %}
+        <div class="col-md-3">
+            <h3>Table Number: {{x.table_number}}</h3>
+            <p>Order ID: {{x.order_id}}</p>
+            {% for item in items %}
+                {% if item.order == x.order_id %}
+                    <p>{{item.iname}}</p>
+                {% endif %}
+            {% endfor %}
+            <table>
+                <tr>
+                <form action="{% url 'Delivered' x.order_id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-info" value="Delivered"></input>
+                </form>
+                </tr>
+                <tr>
+                <form action="{% url 'CancelOrder' x.order_id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-danger" value="Cancel"></input>
+                </form>
+                </tr>
+            </table>
+        </div>
+  {% endfor %}
+</div>
+
+<h2>Preparing</h2>
+
+<div class="row" name="ordersRow">
+    {% for x in preparingOrders %}
+        <div class="col-md-3" name="orderCol">
+            <h3>Table Number: {{x.table_number}}</h3>
+            <p>Order ID: {{x.order_id}}</p>
+            {% for item in items %}
+                {% if item.order == x.order_id %}
+                    <p>{{item.iname}}</p>
+                {% endif %}
+            {% endfor %}
+            <form action="{% url 'CancelOrder' x.order_id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="Cancel"></input>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+</div>
+
+
+<!-- The Ready column is the status column, since there are only 2 states: preparing or ready -->
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+

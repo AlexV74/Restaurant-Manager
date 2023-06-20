@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <title>About Us</title>
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'ManagerApp/about.css' %}"/>
+   </head>
+   {% block content %}
+   <body>
+        {% include 'ManagerApp/navbar.html' %}
+        <div class="bod">
+
+            <div>
+                <h1>About Us</h1>
+            </div>
+
+            <div class="para1">
+                <!-- Some information about the restaurant, can be added to later as needed -->
+                <p>
+                    Welcome to our family-run Mexican restaurant!
+                    Our story began several years ago when our family decided to bring our passion for authentic Mexican cuisine to the local community.
+                    We come from a long line of skilled cooks and have spent countless hours perfecting our recipes to create the delicious and flavorful
+                    dishes that you'll find on our menu.
+                </p>
+            </div>
+
+            <div>
+                <h2 id="loc">Location</h2>
+            </div>
+
+            <div class="para1">
+                <p>
+                    Our homey Mexican restaurant is conveniently located near Royal Holloway University, 
+                    just a short walk away from campus. We are proud to be a part of the vibrant community of Egham, Surrey, and we welcome students, 
+                    faculty, and staff from Royal Holloway, as well as local residents and visitors.
+                </p>
+                <p>
+                    We believe that our location is one of the things that makes our restaurant special. We are situated in a 
+                    beautiful and historic part of Egham, surrounded by lush greenery and picturesque landscapes. Whether you're looking 
+                    for a quick bite to eat between classes or a relaxing dinner with friends, our location provides the perfect setting for 
+                    a memorable dining experience.
+                </p>
+            </div>
+
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.68809105828!2d-0.5672462905991683!3d51.427156048606896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767755f3ce74c9%3A0xd04339084bd84568!2sRoyal%20Holloway!5e0!3m2!1sen!2suk!4v1679082848272!5m2!1sen!2suk"
+                width="900" height="600" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div>
+                <h2>Meet the Team</h2>
+            </div>
+
+            <div class="row">
+                <div class="column">
+                    <h3>Juan - Head Chef</h3>
+                    <p>
+                        Juan is the heart and soul of our kitchen. 
+                        He has over 20 years of experience in the restaurant industry and has mastered the art of creating 
+                        authentic Mexican dishes. Juan is passionate about using fresh, locally-sourced ingredients and takes pride 
+                        in every dish he creates.
+                    </p>
+                </div>
+                
+                <div class="column">
+                    <h3>Maria - Front of House Manager</h3>
+                    <p>
+                        Maria is the friendly face that greets you when you walk through our doors. She has a talent for making every customer feel like 
+                        a part of our family. Maria is also responsible for managing our front 
+                        of house operations, ensuring that your dining experience is nothing but exceptional.
+                    </p>
+                </div>
+                
+                <div class="column">
+                    <h3>Carlos - Bar Manager</h3>
+                    <p>
+                        Carlos is the mastermind behind our delicious margaritas and cocktails. He has a passion 
+                        for mixology and takes pride in creating unique and flavorful drinks that perfectly complement our menu.
+                    </p>
+                </div>
+
+              </div>
+
+        </div>
+    
+   </body>
+{% endblock %}
