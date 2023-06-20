@@ -1,0 +1,47 @@
+.bod {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+body{
+    background-image: url(bgrest.jpg);
+    background-size: cover;
+}
+h1 {
+    color: #343a40;
+    text-align: center;
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+
+p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+form {
+    background-color: lightgray;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input[type="text"],
+input[type="email"],
+textarea {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+button[type="submit"] {
+    margin-top: 20px;
+}
